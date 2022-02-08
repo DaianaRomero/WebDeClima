@@ -1,9 +1,6 @@
 const API_KEY = "a541e128e33c81b0b23951092a8d6a43";
 
-
 //check if geolocation is available devuelve la posicion de donde estoy actualmente
-
-    
 
     function fetchClima(position){
 
@@ -17,8 +14,6 @@ const API_KEY = "a541e128e33c81b0b23951092a8d6a43";
             )
     }
     
-     
-     
     const onLoad = () => {
         navigator.geolocation.getCurrentPosition(fetchClima);
         
@@ -63,6 +58,3 @@ const mostrarInfo = () =>{
     container.style.display ="flex";
 }
         
-
-
-     
