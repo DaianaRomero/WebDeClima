@@ -1,0 +1,27 @@
+body{
+background-color: #70798c;
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+
+
+  
+  #container{
+      display: none;
+      padding: 20px;
+      background-color: bisque;
+  }
+  #container>.block{
+      padding: 20px;
+  }
+  .information-container{
+      display: flex;
+      
+  }
+  .info{
+      margin-left: 5px;
+  }
