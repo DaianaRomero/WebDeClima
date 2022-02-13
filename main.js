@@ -1,4 +1,7 @@
 const API_KEY = "a541e128e33c81b0b23951092a8d6a43";
+const fondo = document.querySelector("body");
+
+
 
 //check if geolocation is available devuelve la posicion de donde estoy actualmente
 
@@ -18,7 +21,7 @@ const API_KEY = "a541e128e33c81b0b23951092a8d6a43";
         navigator.geolocation.getCurrentPosition(fetchClima);
         
        }
-     
+       
 
       //if (navigator.geolocation) { //check if geolocation is available
       // navigator.geolocation.getCurrentPosition(position => console.log(position)); 
@@ -39,17 +42,89 @@ const API_KEY = "a541e128e33c81b0b23951092a8d6a43";
                 humidity:data.main.humidity,
                 pressure:data.main.pressure,
                 temperature:data.main.temp,
-                fecha:fecha()
+                fecha:fecha(),
+                hora:hora(),
+                img:data.weather[0].icon
 
             }
-
+            const estado=data.weather[0].icon
             Object.keys(info).forEach(key => {
+
+                if(key == "img"){
+                   if(estado.includes("d")) {
+                       switch(data.weather[0].description){
+                        case "cielo claro":
+                        fondo.style.backgroundImage="URL('./img/sol.jpg')";
+                        break;
+                        case "pocas nubes":
+                        fondo.style.backgroundImage="URL('./img/pocasNubesDia.jpg')";
+                        break;
+                        case "lluvia":
+                        fondo.style.backgroundImage="URL('./img/lluviaDia.jpg')";
+                        break;
+                        case "nubes dispersas":
+                            fondo.style.backgroundImage="URL('./img/nubesDispersasDia.jpg')";
+                            break;
+                       }
+                            
+                    }else if(estado.includes("n")){
+                        switch(data.weather[0].description){
+                            case "cielo claro":
+                            fondo.style.backgroundImage="URL('./img/noche.jpg')";
+                            break;
+                            case "pocas nubes":
+                            fondo.style.backgroundImage="URL('./img/pocasNubesNoche.jpg')";
+                            break;
+                            case "lluvia":
+                            fondo.style.backgroundImage="URL('./img/lluviaNoche.jpg')";
+                            break;
+                            case "nubes dispersas":
+                                fondo.style.backgroundImage="URL('./img/nubesDispersasNoche.jpg')";
+                                break;
+                              
+                        }
+                    }else{
+                        switch(data.weather[0].description){
+                            case "tormenta":
+                            fondo.style.backgroundImage="URL('./img/noche.jpg')";
+                            break;
+                            case "nieve":
+                            fondo.style.backgroundImage="URL('./img/pocasNubesNoche.jpg')";
+                            break;
+                            case "aguacero":
+                            fondo.style.backgroundImage="URL('./img/lluviaNoche.jpg')";
+                            break;
+                            case "neblina":
+                                fondo.style.backgroundImage="URL('./img/nubesDispersasNoche.jpg')";
+                                break;
+                            case "nubes rotas":
+                            fondo.style.backgroundImage="URL('./img/nubesDispersasNoche.jpg')";
+                            break;
+                           }
+                    }
+                   
+                       
+
+
+                document.getElementById(key).setAttribute("src", `http://openweathermap.org/img/wn/${info[key]}.png`);
+
+               
+
+
+
+                }
+
+
+
+               
                 document.getElementById(key).textContent = info[key];
+                
+            
             });
 
             mostrarInfo();
         }
-
+       
 const mostrarInfo = () =>{
     let container = document.getElementById("container");
     let spinner = document.getElementById("spinner")
@@ -58,3 +133,34 @@ const mostrarInfo = () =>{
     container.style.display ="flex";
 }
         
+
+function mostrarAmanece(){
+
+
+
+let unix_timestamp = 1644744371
+// Create a new JavaScript Date object based on the timestamp
+// multiplied by 1000 so that the argument is in milliseconds, not seconds.
+var date = new Date(unix_timestamp * 1000);
+// Hours part from the timestamp
+var hours = date.getHours();
+// Minutes part from the timestamp
+var minutes = "0" + date.getMinutes();
+// Seconds part from the timestamp
+var seconds = "0" + date.getSeconds();
+
+// Will display time in 10:30:23 format
+var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
+console.log(formattedTime);
+return formattedTime
+}
+
+function hora(){
+    momentoActual = new Date()
+    hora = momentoActual.getHours()
+minuto = momentoActual.getMinutes()
+segundo = momentoActual.getSeconds()
+var horaImprimible = hora + " : " + minuto + " : " + segundo
+return horaImprimible
+}

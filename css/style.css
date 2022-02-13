@@ -12,11 +12,15 @@ align-items: center;
     font-weight: bolder;
 }
 
-  
+  .imagenFondoClima {
+     background-repeat: no-repeat;
+     background-size: cover;
+      
+  }
   #container{
       display: none;
       padding: 20px;
-      background-color: bisque;
+      background-color: rgb(250, 244, 237);
   }
   #container>.block{
       padding: 20px;
