@@ -51,12 +51,32 @@ const fondo = document.querySelector("body");
             Object.keys(info).forEach(key => {
 
                 if(key == "img"){
+
+                    switch(data.weather[0].description){
+                        case "tormenta":
+                        fondo.style.backgroundImage="URL('./img/tormenta.jpg')";
+                        break;
+                        case "nieve":
+                        fondo.style.backgroundImage="URL('./img/nieve.jpg')";
+                        break;
+                        case "aguacero":
+                        fondo.style.backgroundImage="URL('./img/aguacero.jpg')";
+                        break;
+                        case "neblina":
+                            fondo.style.backgroundImage="URL('./img/neblina.jpg')";
+                            break;
+                        case "muy nuboso":
+                        fondo.style.backgroundImage="URL('./img/nubesRotas.jpg')";
+                        break;
+                       }
+
                    if(estado.includes("d")) {
+                    console.log("f")
                        switch(data.weather[0].description){
                         case "cielo claro":
                         fondo.style.backgroundImage="URL('./img/sol.jpg')";
                         break;
-                        case "pocas nubes":
+                        case "algo de nubes":
                         fondo.style.backgroundImage="URL('./img/pocasNubesDia.jpg')";
                         break;
                         case "lluvia":
@@ -64,15 +84,18 @@ const fondo = document.querySelector("body");
                         break;
                         case "nubes dispersas":
                             fondo.style.backgroundImage="URL('./img/nubesDispersasDia.jpg')";
-                            break;
+                        break;
+                            
                        }
+                       console.log("final del switch")
+                       
                             
                     }else if(estado.includes("n")){
                         switch(data.weather[0].description){
                             case "cielo claro":
                             fondo.style.backgroundImage="URL('./img/noche.jpg')";
                             break;
-                            case "pocas nubes":
+                            case "algo de nubes":
                             fondo.style.backgroundImage="URL('./img/pocasNubesNoche.jpg')";
                             break;
                             case "lluvia":
@@ -80,30 +103,15 @@ const fondo = document.querySelector("body");
                             break;
                             case "nubes dispersas":
                                 fondo.style.backgroundImage="URL('./img/nubesDispersasNoche.jpg')";
-                                break;
+                            break;
                               
                         }
                     }else{
-                        switch(data.weather[0].description){
-                            case "tormenta":
-                            fondo.style.backgroundImage="URL('./img/noche.jpg')";
-                            break;
-                            case "nieve":
-                            fondo.style.backgroundImage="URL('./img/pocasNubesNoche.jpg')";
-                            break;
-                            case "aguacero":
-                            fondo.style.backgroundImage="URL('./img/lluviaNoche.jpg')";
-                            break;
-                            case "neblina":
-                                fondo.style.backgroundImage="URL('./img/nubesDispersasNoche.jpg')";
-                                break;
-                            case "nubes rotas":
-                            fondo.style.backgroundImage="URL('./img/nubesDispersasNoche.jpg')";
-                            break;
-                           }
+                        console.log("salio aca")
+                        
                     }
                    
-                       
+                    console.log("salio aca2")  
 
 
                 document.getElementById(key).setAttribute("src", `http://openweathermap.org/img/wn/${info[key]}.png`);
