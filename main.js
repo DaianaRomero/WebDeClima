@@ -62,10 +62,10 @@ const fondo = document.querySelector("body");
                         case "aguacero":
                         fondo.style.backgroundImage="URL('./img/aguacero.jpg')";
                         break;
-                        case "neblina":
+                        case "niebla":
                             fondo.style.backgroundImage="URL('./img/neblina.jpg')";
                             break;
-                        case "muy nuboso":
+                        case "nubes":
                         fondo.style.backgroundImage="URL('./img/nubesRotas.jpg')";
                         break;
                        }
@@ -79,8 +79,11 @@ const fondo = document.querySelector("body");
                         case "algo de nubes":
                         fondo.style.backgroundImage="URL('./img/pocasNubesDia.jpg')";
                         break;
-                        case "lluvia":
+                        case "lluvia ligera":
                         fondo.style.backgroundImage="URL('./img/lluviaDia.jpg')";
+                        break;
+                        case "muy nuboso":
+                            fondo.style.backgroundImage="URL('./img/nubesRotas.jpg')";
                         break;
                         case "nubes dispersas":
                             fondo.style.backgroundImage="URL('./img/nubesDispersasDia.jpg')";
@@ -98,12 +101,15 @@ const fondo = document.querySelector("body");
                             case "algo de nubes":
                             fondo.style.backgroundImage="URL('./img/pocasNubesNoche.jpg')";
                             break;
-                            case "lluvia":
+                            case "lluvia ligera":
                             fondo.style.backgroundImage="URL('./img/lluviaNoche.jpg')";
                             break;
                             case "nubes dispersas":
                                 fondo.style.backgroundImage="URL('./img/nubesDispersasNoche.jpg')";
                             break;
+                            case "muy nuboso":
+                            fondo.style.backgroundImage="URL('./img/nubesRotas.jpg')";
+                        break;
                               
                         }
                     }else{

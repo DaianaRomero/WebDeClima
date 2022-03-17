@@ -10,7 +10,6 @@ align-items: center;
 .info2{
     font-size: 18px;
     font-weight: bolder;
-    border: double;
     background-color: #ffffff;
 }
 
@@ -23,10 +22,9 @@ align-items: center;
       display: none;
       padding: 10px;
       background-color: #c6cfe2;
-      border: 3px solid rgb(8, 8, 8);
   }
   #container>.block{
-      padding: 20px;
+      padding: 15px;
   }
   .information-container{
       display: flex;
